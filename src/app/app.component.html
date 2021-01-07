@@ -10,7 +10,7 @@
   </span>
 
   <div fxShow="true" fxHide.lt-md="true">
-    <a routerLink="" mat-button>
+    <a routerLink="/" mat-button>
       <mat-icon color="accent">search</mat-icon> Search
     </a>
     <a mat-button>
@@ -21,22 +21,23 @@
     </a>
   </div>
 </mat-toolbar>
-
-<mat-drawer-container class="example-container">
-  <mat-drawer #sidenav mode="side" fxLayout="column" fxHide.gt-md="true">
-    <div fxLayout="column">
-      <a mat-button routerLink="" color="primary">
-        <mat-icon color="accent">search</mat-icon> Search
-      </a>
-      <a mat-button color="primary">
-        <mat-icon color="accent">shopping_cart</mat-icon>Cart
-      </a>
-      <a mat-button color="primary">
-        <mat-icon color="accent">collections_bookmark</mat-icon>My Collection
-      </a>
-    </div>
-  </mat-drawer>
-  <mat-drawer-content>
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+<div style="height: calc(100vh - 64px);">
+  <mat-drawer-container class="example-container" fxFlexFill>
+    <mat-drawer #sidenav mode="side" fxLayout="column" fxHide.gt-md="true">
+      <div fxLayout="column">
+        <a mat-button routerLink="/" color="primary">
+          <mat-icon color="accent">search</mat-icon> Search
+        </a>
+        <a mat-button color="primary">
+          <mat-icon color="accent">shopping_cart</mat-icon>Cart
+        </a>
+        <a mat-button color="primary">
+          <mat-icon color="accent">collections_bookmark</mat-icon>My Collection
+        </a>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
