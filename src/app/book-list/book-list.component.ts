@@ -18,7 +18,6 @@ export class BookListComponent implements OnInit {
   ngOnInit(): void {
     this.bookListSubscription = this.bookservice.displayBooks().subscribe((bookData: BookData[]) => {
       this.books = bookData;
-      console.log(this.books[0].volumeInfo.imageLinks.thumbnail);
     });
 
   }

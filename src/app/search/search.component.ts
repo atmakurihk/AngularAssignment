@@ -8,16 +8,14 @@ import { BookService } from '../book.service';
 })
 export class SearchComponent implements OnInit {
 
-  searchValue ='';
-  constructor(private bookService:BookService) { }
+  searchString = '';
+  constructor(private bookService: BookService) { }
 
 
   ngOnInit(): void {
   }
-  testsearch()
-  {
-    console.log("search value :"+ this.searchValue );
 
-    this,this.bookService.getBooks(this.searchValue);
+  searchBooks(): void {
+    this.bookService.getBooks(this.searchString);
   }
 }

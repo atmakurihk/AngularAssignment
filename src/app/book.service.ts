@@ -9,29 +9,26 @@ import { Observable, Subject } from 'rxjs';
 })
 export class BookService {
   private books: BookData[] = [];
-  private bookListUpdated =  new Subject<BookData[]>();
+  private bookListUpdated = new Subject<BookData[]>();
   constructor(private http: HttpClient) { }
 
-  getBooks(searchValue: string): void
-  {
+  getBooks(searchValue: string): void {
     this.http.get<BookResponse>('https://www.googleapis.com/books/v1/volumes?q=' + searchValue + '&startIndex=0&maxResults=10')
-   .pipe(
-     map(bookdata => {
-       return bookdata.items;
-     })
-   )
-    .subscribe((bookData) => {
-      this.books.push(...bookData);
-      this.bookListUpdated.next(this.books.slice());
-      console.log((bookData));
-    },
-    error => {
-     console.log(error);
-    });
+      .pipe(
+        map(bookdata => {
+          return bookdata.items;
+        })
+      )
+      .subscribe((bookData) => {
+        this.books.push(...bookData);
+        this.bookListUpdated.next(this.books.slice());
+      },
+        error => {
+          console.log(error);
+        });
   }
 
-  displayBooks(): Observable<BookData[]>
-  {
+  displayBooks(): Observable<BookData[]> {
     return this.bookListUpdated.asObservable();
   }
 }

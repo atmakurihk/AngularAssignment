@@ -4,8 +4,8 @@ import { BookListComponent } from './book-list/book-list.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
-  {path: '', component: SearchComponent},
-  {path: 'list', component: BookListComponent}
+  { path: '', component: SearchComponent },
+  { path: 'list', component: BookListComponent }
 ];
 
 @NgModule({
