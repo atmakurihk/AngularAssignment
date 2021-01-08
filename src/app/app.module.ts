@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { AuthorTransformPipe } from './shared/author-transform.pipe';
+import { BookItemComponent } from './book-list/book-item/book-item.component';
+import { BookViewComponent } from './book-view/book-view.component';
+import { StarRatingComponent } from './shared/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { AuthorTransformPipe } from './shared/author-transform.pipe';
     SearchComponent,
     BookListComponent,
     TruncatePipe,
-    AuthorTransformPipe
+    AuthorTransformPipe,
+    BookItemComponent,
+    BookViewComponent,
+    StarRatingComponent
 
   ],
   imports: [

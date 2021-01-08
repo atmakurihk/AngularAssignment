@@ -9,4 +9,5 @@ export interface VolumeInfo {
   averageRating: number;
   ratingsCount: number;
   imageLinks: ImageLinks;
+  language: string;
 }

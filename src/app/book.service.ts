@@ -31,4 +31,14 @@ export class BookService {
   displayBooks(): Observable<BookData[]> {
     return this.bookListUpdated.asObservable();
   }
+
+  getbookById(index: number): BookData {
+
+    return this.books[index];
+
+  }
+  loadBooks(): BookData[]
+  {
+  return this.books.slice();
+  }
 }
