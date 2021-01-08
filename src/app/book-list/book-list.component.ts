@@ -1,6 +1,6 @@
 import { BookService } from './../book.service';
 import { BookData } from './../models/bookData.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss']
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent implements OnInit,OnDestroy {
 
   books!: BookData[];
   bookListSubscription!: Subscription;
@@ -20,6 +20,10 @@ export class BookListComponent implements OnInit {
       this.books = bookData;
     });
 
+  }
+
+  ngOnDestroy(): void{
+    this.bookListSubscription.unsubscribe();
   }
 
 }
